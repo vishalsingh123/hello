@@ -1,0 +1,24 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#toi" data-toggle="tab">Toi</a></li>
+  <li><a href="#zee" data-toggle="tab">Zee</a></li>
+  <li><a href="#ndtv" data-toggle="tab">Ndtv</a></li>
+  <li><a href="#intoday" data-toggle="tab">InToday</a></li>
+  <li><a href="#oneindia" data-toggle="tab">OneIndia</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="toi"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="zee"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="ndtv"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="intoday"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="oneindia"><center><%= image_tag "spinner.gif" %></center></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.get("/home/toi_latest");
+    $.get("/home/zee_latest");
+    $.get("/home/ndtv_latest");
+    $.get("/home/in_latest");
+    $.get("/home/oneindia_latest");
+  })
+</script>
