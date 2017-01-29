@@ -1,14 +1,20 @@
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#dainik" data-toggle="tab">Dainik</a></li>
+  <li class="active"><a href="#abp" data-toggle="tab">Abp</a></li>
+  <li><a href="#zee" data-toggle="tab">Zee</a></li>
+  <li><a href="#dainik" data-toggle="tab">Dainik</a></li>
   <li><a href="#ndtv" data-toggle="tab">Ndtv</a></li>
 </ul>
 <div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade active in" id="dainik"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade active in " id="abp"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="zee"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="dainik"><center><%= image_tag "spinner.gif" %></center></div>
   <div class="tab-pane fade" id="ndtv"><center><%= image_tag "spinner.gif" %></center></div>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function(){
+    $.get("/hindi_news/abp");
+    $.get("/hindi_news/zee");
     $.get("/hindi_news/dainik");
     $.get("/hindi_news/ndtv");
   })

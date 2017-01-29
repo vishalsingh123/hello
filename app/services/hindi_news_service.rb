@@ -42,4 +42,41 @@ class HindiNewsService < BaseService
 		result
 	end
 
+	def fetch_zee
+		result = Array.new
+		doc = Nokogiri::HTML(open('http://zeenews.india.com/hindi'))
+		doc.xpath('//div[@class="connrtund"]/div[@class="clearfix"]').each do |link|
+			args = ['./h3/a', './p', './h3/a/@href', './a/img/@src']
+			parse link, './div/div/div/div/div[@class="leadarea"]//div',args do |hash|
+					result << hash
+			end
+			args = ['./h3/a', './p', './h3/a/@href', './a[1]/img/@src']
+			parse link, './div//li[@class="clear"]',args do |hash|
+				result << hash
+			end
+		end
+		result.map {|res| res["ImgLink"] = res["ImgLink"].sub("styles/zm_98x58/public/","") unless res["ImgLink"].nil?}
+		result
+	end
+
+	def fetch_abp
+		result = Array.new
+		doc = Nokogiri::HTML(open('http://abpnews.abplive.in/'))
+		doc.xpath('//div[@class="col-sm-6 _mids _msdiv "]').each do |link|
+			args = ['./h1/a', './p', './h1/a/@href', './a/img/@src']
+			parse link, './div[@class="row"]//div[@class="col-sm-12"]',args do |hash|
+					result << hash
+			end
+			args = ['./h5/a', './p', './h5/a/@href', './a[1]/img/@data-lazy-src']
+			parse link, '//div[@class="col-sm-6 pr"]',args do |hash|
+				result << hash
+			end
+			parse link, '//div[@class="col-sm-6 prl"]',args do |hash|
+				result << hash
+			end
+		end
+		#result.map {|res| res["ImgLink"] = res["ImgLink"].sub("styles/zm_98x58/public/","") unless res["ImgLink"].nil?}
+		result
+	end
+
 end

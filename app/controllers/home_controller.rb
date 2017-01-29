@@ -3,28 +3,26 @@ class HomeController < ApplicationController
   end
 
 	def in_latest
-		@news = @service.fetch_intoday
+		@news = News.find_by(language: "ENGLISH", channel: "INTODAY", news_type: "LATEST")["news"]
     @base = "http://indiatoday.intoday.in/"
   end
 
   def zee_latest
-		@news = @service.fetch_zee
+		@news = News.find_by(language: "ENGLISH", channel: "ZEE", news_type: "LATEST")["news"]
     @base = "http://zeenews.india.com"
 	end
 
 	def ndtv_latest
-		@news = @service.ndtv
-   	@news = @news + @service.fetch_ndtv 
+		@news = News.find_by(language: "ENGLISH", channel: "NDTV", news_type: "LATEST")["news"]
   end
 
   def toi_latest
-   	@news = @service.fetch_toi 
+		@news = News.find_by(language: "ENGLISH", channel: "TOI", news_type: "LATEST")["news"]
     @base = "http://timesofindia.indiatimes.com"
-    @img_base = "http://timesofindia.indiatimes.com"
   end
 	
 	def oneindia_latest
-		@news = @service.fetch_oneindia
+		@news = News.find_by(language: "ENGLISH", channel: "ONEINDIA", news_type: "LATEST")["news"]
 	end
 
 private

@@ -21,7 +21,12 @@ next if res_hash["Title"].nil?
 	end
 	
 	def clean_result res
-		(!res.nil?) ? res.content.strip : nil
+		content = nil
+		unless res.nil? 
+			content = res.content.strip
+			content.gsub!(/\P{ASCII}/, '')
+		end
+		content
 	end
 
 end
