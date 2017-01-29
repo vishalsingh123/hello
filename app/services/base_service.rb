@@ -24,7 +24,7 @@ next if res_hash["Title"].nil?
 		content = nil
 		unless res.nil? 
 			content = res.content.strip
-			content.gsub!(/\P{ASCII}/, '')
+		#	content.gsub!(/\P{ASCII}/, '')
 		end
 		content
 	end

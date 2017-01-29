@@ -5,41 +5,40 @@ namespace :news do
 		@hindi_news = HindiNewsService.new
 # English
 	#IndiaToday	
-		@news = News.find_or_create_by(language: "ENGLISH", channel: "INTODAY", news_type: "LATEST")
+		@news = News.find_or_create_by(channel: "INTODAY", news_type: "LATEST")
 		@news.update(news: @english_news.fetch_intoday)
 		
 	#Zee News	
-		@news = News.find_or_create_by(language: "ENGLISH", channel: "ZEE", news_type: "LATEST")
+		@news = News.find_or_create_by(channel: "ZEE", news_type: "LATEST")
 		@news.update(news: @english_news.fetch_zee)
 
 	#Ndtv	
-		@news = News.find_or_create_by(language: "ENGLISH", channel: "NDTV", news_type: "LATEST")
+		@news = News.find_or_create_by(channel: "NDTV", news_type: "LATEST")
 		@news.update(news: @english_news.ndtv + @english_news.fetch_ndtv)
 
 	#TOI
-		@news = News.find_or_create_by(language: "ENGLISH", channel: "TOI", news_type: "LATEST")
-		@news.update(news: @english_news.fetch_intoday)
+		@news = News.find_or_create_by(channel: "TOI", news_type: "LATEST")
+		@news.update(news: @english_news.fetch_toi)
 
 	#OneIndia	
-		@news = News.find_or_create_by(language: "ENGLISH", channel: "ONEINDIA", news_type: "LATEST")
+		@news = News.find_or_create_by(channel: "ONEINDIA", news_type: "LATEST")
 		@news.update(news: @english_news.fetch_oneindia)
-
+#
 #Hindi
 	#Dainik
-		@news = News.find_or_create_by(language: "HINDI", channel: "DAINIK", news_type: "LATEST")
+		@news = HindiNews.find_or_create_by(channel: "DAINIK", news_type: "LATEST")
 		@news.update(news: @hindi_news.fetch_dainik)
 
 	#Ndtv
-		@news = News.find_or_create_by(language: "HINDI", channel: "NDTV", news_type: "LATEST")
+		@news = HindiNews.find_or_create_by(channel: "NDTV", news_type: "LATEST")
 		@news.update(news: @hindi_news.fetch_ndtv)
 
 	#Zee
-		@news = News.find_or_create_by(language: "HINDI", channel: "ZEE", news_type: "LATEST")
+		@news = HindiNews.find_or_create_by(channel: "ZEE", news_type: "LATEST")
 		@news.update(news: @hindi_news.fetch_zee)
 
 	#ABP
-		@news = News.find_or_create_by(language: "HINDI", channel: "ABP", news_type: "LATEST")
+		@news = HindiNews.find_or_create_by(channel: "ABP", news_type: "LATEST")
 		@news.update(news: @hindi_news.fetch_abp)
   end
-
 end

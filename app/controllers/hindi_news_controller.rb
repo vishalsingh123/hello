@@ -3,20 +3,20 @@ class HindiNewsController < ApplicationController
   end
 
 	def dainik
-		@news = @service.fetch_dainik
+		@news = HindiNews.find_by(channel: "DAINIK", news_type: "LATEST")["news"]
     @base = "http://www.jagran.com"
   end
 
 	def ndtv
-		@news = @service.fetch_ndtv
+		@news = HindiNews.find_by(channel: "NDTV", news_type: "LATEST")["news"]
 	end
 
 	def zee
-		@news = @service.fetch_zee
+		@news = HindiNews.find_by(channel: "ZEE", news_type: "LATEST")["news"]
 	end
 
 	def abp 
-		@news = @service.fetch_abp
+		@news = HindiNews.find_by(channel: "ABP", news_type: "LATEST")["news"]
 	end
 
 private
