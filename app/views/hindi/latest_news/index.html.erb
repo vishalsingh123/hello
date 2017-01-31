@@ -13,9 +13,9 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $.get("/hindi_news/abp");
-    $.get("/hindi_news/zee");
-    $.get("/hindi_news/dainik");
-    $.get("/hindi_news/ndtv");
+    $.get("<%= hindi_latest_news_abp_path %>");
+    $.get("<%= hindi_latest_news_zee_path %>");
+    $.get("<%= hindi_latest_news_dainik_path %>");
+    $.get("<%= hindi_latest_news_ndtv_path %>");
   })
 </script>

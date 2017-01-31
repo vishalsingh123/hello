@@ -15,10 +15,10 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $.get("/home/toi_latest");
-    $.get("/home/zee_latest");
-    $.get("/home/ndtv_latest");
-    $.get("/home/in_latest");
-    $.get("/home/oneindia_latest");
-  })
+    $.get("<%= english_latest_news_toi_latest_path %>");
+    $.get("<%= english_latest_news_zee_latest_path %>");
+    $.get("<%= english_latest_news_ndtv_latest_path %>");
+    $.get("<%= english_latest_news_in_latest_path %>");
+    $.get("<%= english_latest_news_oneindia_latest_path %>");
+  });
 </script>

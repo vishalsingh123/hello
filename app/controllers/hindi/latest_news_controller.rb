@@ -1,4 +1,4 @@
-class HindiNewsController < ApplicationController
+class Hindi::LatestNewsController < ApplicationController
   def index
   end
 
