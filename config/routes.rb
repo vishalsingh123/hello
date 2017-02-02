@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 		get "finance" => "finance#index"
 		get "finance/money_control" => "finance#money_control"
+		get "finance/et" => "finance#et"
 		get "finance/market_action" => "finance#market_action"
 	end
 	namespace :hindi do

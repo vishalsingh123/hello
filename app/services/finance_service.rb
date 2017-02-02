@@ -72,4 +72,17 @@ class FinanceService < BaseService
 		result
 	end
 
+	def fetch_et
+		result = Array.new
+		doc = Nokogiri::HTML(open('http://economictimes.indiatimes.com/etlatestnewsupdate.cms'))
+		
+			args = ['./a', './p', './a/@href', './a/img/@data-original']
+			parse doc, '//li',args do |hash|
+					result << hash
+			end
+		result
+	end
+
+	
+
 end

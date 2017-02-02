@@ -2,7 +2,8 @@ namespace :news do
   desc "TODO"
   task update_news: :environment do
 		@english_news = MainService.new
-		@hindi_news = HindiNewsService.new
+		@hindi_news 	= HindiNewsService.new
+		@finance_news = FinanceService.new
 # English
 	#IndiaToday	
 		@news = News.find_or_create_by(channel: "INTODAY", news_type: "LATEST")
@@ -23,6 +24,10 @@ namespace :news do
 	#OneIndia	
 		@news = News.find_or_create_by(channel: "ONEINDIA", news_type: "LATEST")
 		@news.update(news: @english_news.fetch_oneindia)
+
+	#MoneyControl
+		@news = News.find_or_create_by(channel: "MoneyControl", news_type: "FINANCE")
+    @news.update(news: @finance_news.fetch_money_control)
 #
 #Hindi
 	#Dainik
