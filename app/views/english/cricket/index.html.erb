@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#cb" data-toggle="tab">CricBuzz</a></li>
+  <li><a href="#espn" data-toggle="tab">ESPN</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="cb"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="espn"><center><%= image_tag "spinner.gif" %></center></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.get("<%= english_cricket_cb_path %>");
+    $.get("<%= english_cricket_espn_path %>");
+  });
+</script>

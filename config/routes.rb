@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 		get "finance" => "finance#index"
 		get "finance/money_control" => "finance#money_control"
 		get "finance/et" => "finance#et"
+		get "finance/zee" => "finance#zee"
 		get "finance/market_action" => "finance#market_action"
+
+		get "cricket" => "cricket#index"
+		get "cricket/cb" => "cricket#cb"
+		get "cricket/espn" => "cricket#espn"
 	end
 	namespace :hindi do
 		get "latest_news" => "latest_news#index"

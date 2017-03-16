@@ -14,8 +14,15 @@ class English::FinanceController < ApplicationController
 	end
 
 	def et
-		@news = @service.fetch_et
+		@news = News.find_by(channel: "ET", news_type: "FINANCE")["news"]
+		@base = "http://economictimes.indiatimes.com"
 	end
+
+	def zee
+		@news = News.find_by(channel: "ZEE", news_type: "FINANCE")["news"]
+		@base = "http://zeenews.india.com"
+	end
+	
 
 private
 	def load_service

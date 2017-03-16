@@ -3,6 +3,16 @@ class HindiNewsService < BaseService
 	def fetch_dainik
 		result = Array.new
 		doc = Nokogiri::HTML(open('http://www.jagran.com/'))
+=begin
+		doc.xpath('//div[@id="1486981309735"]/div/ul//li').each do |link1|
+				res_hash = Hash.new
+  			res_hash["Title"] 			= clean_result link1.at_xpath('./div[@class="discription"]/h3/a')
+  			res_hash["Description"] = clean_result link1.at_xpath('./div[@class="discription"]/p')
+  			res_hash["Link"]  			= clean_result link1.at_xpath('./div[@class="discription"]/h3/a/@href')
+  			res_hash["ImgLink"] 		= clean_result link1.at_xpath('./h3/a/div/img/@src')
+				result << res_hash
+		end
+=end
 		doc.xpath('//div[@class="main-pager"]').each do |link|
 			link.xpath('//ul[@class="tabbox"]//li').each do |link1|
 				res_hash = Hash.new
@@ -18,7 +28,7 @@ class HindiNewsService < BaseService
 
 	def fetch_ndtv
 		result = Array.new
-		doc = Nokogiri::HTML(open('http://khabar.ndtv.com/'))
+		doc = Nokogiri::HTML(open('https://khabar.ndtv.com/'))
 		doc.xpath('//div[@class="ndtv_leadstory"]').each do |link|
 				res_hash = Hash.new
         res_hash["Title"]       = clean_result link.at_xpath('./div/div/h1/a')

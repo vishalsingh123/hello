@@ -83,6 +83,15 @@ class FinanceService < BaseService
 		result
 	end
 
-	
+	def fetch_zee
+		result = Array.new
+		doc = Nokogiri::HTML(open('http://zeenews.india.com/markets'))
+		args = ['./span/a', './p', './span/a/@href', './a/img/@src']
+		parse doc, '//div[@class="lead-health-nw"]',args do |hash|
+			result << hash
+		end
+		#result.map {|res| res["ImgLink"] = res["ImgLink"].sub("styles/zm_98x58/public/","")}
+		result
+	end	
 
 end
